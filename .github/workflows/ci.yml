@@ -16,6 +16,6 @@ jobs:
           DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
         run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
       - name: Build kar docker image
-        run: docker build -t hello-world-x .
+        run: docker build -t gitkeeper05/helloworldapp .
       - name: push kar docker registry par
-        run: docker push gitkeeper05/hello-world-x:latest
+        run: docker push gitkeeper05/helloworldapp:v1.0

@@ -1,0 +1,21 @@
+name: deployment pipeline hai okay panda
+
+on:
+  workflow_run:
+    workflows: ["ye conintious integration pipe hai"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - name: old wala delete kar tu kar re
+        run: sudo docker rm -f testing-container || true
+
+      - name: pull kar docker image onto your ec2 , push nahibsk pull
+        run: sudo docker pull gitkeeper05/testing:latest
+
+      - name: Run latest coontainorr
+        run: sudo docker run -d -p 8080:80 --name testing-container gitkeeper05/testing:latest
